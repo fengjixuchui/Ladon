@@ -1,8 +1,8 @@
-## Ladon 6.1 20200318
+## Ladon 6.2 20200327
 ![](https://k8gege.github.io/k8img/Ladon/Dragon.jpg)
 
 [![Author](https://img.shields.io/badge/Author-k8gege-blueviolet)](https://github.com/k8gege) 
-[![Ladon](https://img.shields.io/badge/Ladon-6.1-yellowgreen)](https://github.com/k8gege/Ladon) 
+[![Ladon](https://img.shields.io/badge/Ladon-6.2-yellowgreen)](https://github.com/k8gege/Ladon) 
 [![Bin](https://img.shields.io/badge/Ladon-Bin-ff69b4)](https://github.com/k8gege/Ladon/releases) 
 [![GitHub issues](https://img.shields.io/github/issues/k8gege/Ladon)](https://github.com/k8gege/Ladon/issues) 
 [![Github Stars](https://img.shields.io/github/stars/k8gege/Ladon)](https://github.com/k8gege/Ladon) 
@@ -113,7 +113,7 @@ Ladon采用C#研发，程序体积很小500K左右，即便马不行也能上传
 功能丰富强大<br>
 程序简单易用<br>
 插件支持多种语言<br>
-跨平台(Win/Kali/Ubuntu)等<br>
+跨平台(Win/Kali/Ubuntu/Mac)等<br>
 支持Cobalt Strike插件化<br>
 支持PowerShell无文件渗透<br>
 Exp生成器可一键定制Poc<br>
@@ -145,6 +145,7 @@ Exp生成器可一键定制Poc<br>
 22 支持自定义程序(系统命令或第三方程序即任意语言开发的程序或脚本)<br>
 23 插件(支持多种语言C#/Delphi/Golang/Python/VC/PowerShell)<br>
 24 支持Cobalt Strike(beacon命令行下扫描目标内网或跳板扫描外网目标)<br>
+25 支持CIDR格式IP扫描<br>
 
 ### 内置功能模块(48)
 
@@ -192,7 +193,7 @@ ID | 模块名称 |  功能说明  | 返回结果 | 依赖
 -|-|-|-|-
 1 | [WmiScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-WmiScan(Windows))  |  Wmi密码爆破(Windowns) | 检测状态以及正确密码日志 | 
 2 | [IpcScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%B4%E7%88%86%E7%A0%B4-IpcScan(Windows))  |  Ipc密码爆破(Windows) | 检测状态以及正确密码日志 | 
-3 | [SmbScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-SmbScan(Windows))  |  SMB密码爆破(Windows) | 检测状态以及正确密码日志 | SharpCifs.dll
+3 | [SmbScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-SmbScan(Windows))  |  SMB密码爆破(Windows) | 检测状态以及正确密码日志 
 4 | [SshScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-SSHscan(Linux))  |  SSH密码爆破(Linux) | 检测状态以及正确密码日志 | Renci.SshNet.dll
 5 | [MssqlScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-MSSQL%E6%95%B0%E6%8D%AE%E5%BA%93)  | Mssql数据库密码爆破 | 检测状态以及正确密码日志 | 
 6 | [OracleScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-Oracle%E6%95%B0%E6%8D%AE%E5%BA%93)  | Oracle数据库密码爆破 | 检测状态以及正确密码日志 | DDTek.Oracle.dll
@@ -204,6 +205,8 @@ ID | 模块名称 |  功能说明  | 返回结果 | 依赖
 12 | [TomcatScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-TomcatScan%E6%A8%A1%E5%9D%97Tomcat%E5%90%8E%E5%8F%B0%E7%99%BB%E9%99%86%E5%BC%B1%E5%8F%A3%E4%BB%A4%E6%A3%80%E6%B5%8B)  |  Tomcat后台登陆密码爆破 | 检测状态以及正确密码日志
 13 | [HttpBasicScan](https://github.com/k8gege/Ladon/wiki/%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4-HttpBasicScan%E6%A8%A1%E5%9D%97phpMyAdmin%E5%BC%B1%E5%8F%A3%E4%BB%A4%E6%A3%80%E6%B5%8B)  | HttpBasic401认证密码爆破 | 检测状态以及正确密码日志
 14 | [LdapScan](https://k8gege.org/p/56393.html)  | LdapScan域服务器密码爆破 | 检测状态以及正确密码日志
+15 | [SmbHashScan](https://k8gege.org/p/56393.html)  | SMB协议HASH传递密码爆破 | 检测状态以及正确密码日志
+16 | [WmiHashScan](https://k8gege.org/p/56393.html)  | WMI协议HASH传递密码爆破 | 检测状态以及正确密码日志
 
 
 #### 0x004 漏洞检测/漏洞利用
